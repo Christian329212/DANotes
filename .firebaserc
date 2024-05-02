@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "danote-d4acf": {
+      "hosting": {
+        "da-keep": [
+          "danote-d4acf"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "danote-d4acf"
+  }
+}
