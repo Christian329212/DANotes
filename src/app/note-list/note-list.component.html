@@ -1,7 +1,7 @@
 <div class="notes_wrapper">
     <div class="notes_list_button_wrapper">
         <div>
-            <button (click)="changeFavFilter('all')" [disabled]="status == 'trash'" class="btn light_btn"
+            <button (click)="changeFavFilter('all')" [disabled]="status == 'Trash'" class="btn light_btn"
                 [ngClass]="{'btn_active': favFilter == 'all'}">
                 <svg *ngIf="!(favFilter == 'all')" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
                 </svg>
                 <p>All</p>
             </button>
-            <button (click)="changeFavFilter('fav')" [disabled]="status == 'trash'" class="btn light_btn"
+            <button (click)="changeFavFilter('fav')" [disabled]="status == 'Trash'" class="btn light_btn"
                 [ngClass]="{'btn_active': favFilter == 'fav'}">
                 <svg *ngIf="!(favFilter == 'fav')" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <g id="bookmark">
@@ -67,7 +67,7 @@
         </div>
         <div>
             <button (click)="changeTrashStatus()" class="white_btn_round "
-                [ngClass]="{'back_arrow_active': status == 'trash', 'back_arrow_inactive': status != 'trash'}">
+                [ngClass]="{'back_arrow_active': status == 'Trash', 'back_arrow_inactive': status != 'Trash'}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="arrow_back">
                         <mask id="mask0_103_413" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
@@ -83,8 +83,8 @@
                 </svg>
             </button>
             <button (click)="changeTrashStatus()" class="btn trash_btn"
-                [ngClass]="{'trash_btn_active': status == 'trash'}">
-                <svg *ngIf="(status != 'trash')" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                [ngClass]="{'trash_btn_active': status == 'Trash'}">
+                <svg *ngIf="(status != 'Trash')" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <g id="Filters icons">
                         <mask id="mask0_77_918" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                             width="24" height="24">
@@ -97,7 +97,7 @@
                         </g>
                     </g>
                 </svg>
-                <svg *ngIf="(status == 'trash')" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg *ngIf="(status == 'Trash')" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <g id="Filters icons">
                         <mask id="mask0_77_921" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                             width="24" height="24">

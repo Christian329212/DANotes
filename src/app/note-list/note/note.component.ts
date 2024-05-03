@@ -40,10 +40,11 @@ export class NoteComponent {
       this.note.type = 'trash';
       let docId = this.note.id;
       delete this.note.id;
-      this.noteService.addNote(this.note, "trash");
-      this.noteService.deleteNote("notes", docId);
+      this.noteService.addNote(this.note, "Trash"); // Add to trash in Firestore
+      this.noteService.deleteNote("notes", docId); // Delete from notes in Firestore
     }
   }
+
 
   moveToNotes() {
     if (this.note.id) {
@@ -51,15 +52,24 @@ export class NoteComponent {
       let docId = this.note.id;
       delete this.note.id;
       this.noteService.addNote(this.note, "notes");
-      this.noteService.deleteNote("trash", docId);
+      this.noteService.deleteNote("Trash", docId);
     }
   }
 
   deleteNote() {
     if (this.note.id) {
-      this.noteService.deleteNote("trash", this.note.id);
+      // Delete note from Firestore
+      this.noteService.deleteNote("Trash", this.note.id)
+        .then(() => {
+          // Update local array
+          this.noteService.trashNotes = this.noteService.trashNotes.filter(note => note.id !== this.note.id);
+        })
+        .catch(error => {
+          console.error("Error deleting note from Firestore:", error);
+        });
     }
   }
+
 
   saveNote() {
     this.noteService.updateNote(this.note);

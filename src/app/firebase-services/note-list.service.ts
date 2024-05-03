@@ -47,17 +47,17 @@ export class NoteListService {
     if (note.type == 'note') {
       return 'notes'
     } else {
-      return 'trash'
+      return 'Trash'
     }
   }
 
-  async deleteNote(colId: "notes" | "trash", docId: string) {
+  async deleteNote(colId: "notes" | "Trash", docId: string) {
     await deleteDoc(this.getSingleDocRef(colId, docId)).catch(
       (err) => { console.log(err); }
     )
   }
 
-  async addNote(item: Note, colId: "notes" | "trash") {
+  async addNote(item: Note, colId: "notes" | "Trash") {
     let colRef;
     if (colId == "notes") {
       colRef = this.getNotesRef();
@@ -70,7 +70,7 @@ export class NoteListService {
   }
 
 
-  ngonDestroy() {
+  ngOnDestroy() {
     this.unsubNotes();
     this.unsubTrash();
     this.unsubMarkedNotes();

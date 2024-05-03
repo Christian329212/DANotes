@@ -10,7 +10,7 @@ import { NoteListService } from '../firebase-services/note-list.service'
 export class NoteListComponent {
   noteList: Note[] = [];
   favFilter: "all" | "fav" = "all";
-  status: "notes" | "trash" = "notes";
+  status: "notes" | "Trash" = "notes";
 
   constructor(private noteService: NoteListService) {
   }
@@ -32,10 +32,10 @@ export class NoteListComponent {
   }
 
   changeTrashStatus() {
-    if (this.status == "trash") {
+    if (this.status == "Trash") {
       this.status = "notes";
     } else {
-      this.status = "trash";
+      this.status = "Trash";
       this.favFilter = "all";
     }
   }
